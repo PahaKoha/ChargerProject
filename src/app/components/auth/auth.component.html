@@ -1,0 +1,15 @@
+<div class="auth-container">
+  <div class="auth-content">
+    <h2>Вход</h2>
+    <div class="input-group">
+      <input type="text" id="name" name="name" placeholder="Имя пользователя" [(ngModel)]="username">
+    </div>
+    <div class="input-group">
+      <input type="text" id="password" name="password" placeholder="Пароль">
+    </div>
+    <div class="btn-group">
+      <button class="style-btn"  (click)="emailChecker(username)">Войти</button>
+      <button class="style-btn" (click)="closeAuth()">Отмена</button>
+    </div>
+  </div>
+</div>
