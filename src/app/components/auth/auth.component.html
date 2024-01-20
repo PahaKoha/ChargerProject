@@ -1,15 +1,37 @@
 <div class="auth-container">
   <div class="auth-content">
-    <h2>Вход</h2>
-    <div class="input-group">
-      <input type="text" id="name" name="name" placeholder="Имя пользователя" [(ngModel)]="username">
+    <div class="btn-group font-bold">
+      <button [class.active]="loginIsOpen() | async" (click)="openLogin()">Вход</button>
+      <button [class.active]="signUpIsOpen() | async"  (click)="openSignUp()">Регистрация</button>
     </div>
-    <div class="input-group">
-      <input type="text" id="password" name="password" placeholder="Пароль">
+
+    <div class="login" *ngIf="loginIsOpen() | async">
+      <div class="input-group">
+        <input type="text" id="email" name="email" placeholder="Почта" [(ngModel)]="loginEmail">
+      </div>
+      <div class="input-group">
+        <input type="password" id="password" name="password" placeholder="Пароль">
+      </div>
+      <div class="btn-group">
+        <button class="style-btn" (click)="emailChecker(loginEmail)">Войти</button>
+        <button class="style-btn" (click)="closeLogin()">Отмена</button>
+      </div>
     </div>
-    <div class="btn-group">
-      <button class="style-btn"  (click)="emailChecker(username)">Войти</button>
-      <button class="style-btn" (click)="closeAuth()">Отмена</button>
+
+    <div class="sign-up" *ngIf="signUpIsOpen() | async">
+      <div class="input-group">
+        <input type="text" id="nickname" name="nickname" placeholder="Имя пользователя">
+      </div>
+      <div class="input-group">
+        <input type="text" id="emailSignUp" name="emailSignUp" placeholder="Почта" [(ngModel)]="signUpEmail">
+      </div>
+      <div class="input-group">
+        <input type="password" id="passwordSignUp" name="passwordSignUp" placeholder="Пароль">
+      </div>
+      <div class="btn-group">
+        <button class="style-btn" (click)="emailChecker(signUpEmail)">Зарегистрироваться</button>
+        <button class="style-btn" (click)="closeSignUp()">Отмена</button>
+      </div>
     </div>
   </div>
 </div>

@@ -20,14 +20,14 @@
     </ul>
   </nav>
   <div class="user-controls">
-    <button class="login-btn" type="button" (click)="openAuth()">Вход</button>
-    <button class="register-btn">Регистрация</button>
+    <button class="login-btn" type="button" (click)="openLogin()">Вход</button>
+    <button class="register-btn" type="button" (click)="openSignUp()">Регистрация</button>
   </div>
 </header>
 
 
-<app-date></app-date>
+
 <h1 class="text-center font-bold">{{title}}</h1>
-<app-auth *ngIf="isOpen() | async"></app-auth>
+<app-auth *ngIf="(loginIsOpen() | async) || (signUpIsOpen() | async)"></app-auth>
 <router-outlet></router-outlet>
 

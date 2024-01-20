@@ -5,20 +5,37 @@ import {BehaviorSubject} from "rxjs";
   providedIn: 'root'
 })
 export class AuthService {
-  private authState: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  private isEmailCorrect: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private loginState: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private signUpState: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  // private isEmailCorrect: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
 
-  show() {
-    this.authState.next(true);
+  showLogin() {
+    this.loginState.next(true);
+    this.signUpState.next(false);
+
   }
 
-  hide() {
-    this.authState.next(false);
+  hideLogin() {
+    this.loginState.next(false);
   }
 
-  isShown() {
-    return this.authState.asObservable();
+  loginIsShown() {
+    return this.loginState.asObservable();
+  }
+
+  showSingUp() {
+    this.signUpState.next(true);
+    this.loginState.next(false);
+
+  }
+
+  hideSignUp() {
+    this.signUpState.next(false);
+  }
+
+  signUpIsShown() {
+    return this.signUpState.asObservable();
   }
 
   emailChecker(email: string) {
