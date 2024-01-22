@@ -1,39 +1,30 @@
-.header {
+header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: flex-start;
   padding: 10px 20px;
   background-color: #333;
   color: white;
 }
 
-.header .logo img {
-  height: 50px;
+header .title {
+  font-size: 30px;
+  font-style: italic;
+  text-align: center;
+  margin-left: 150px;
+  margin-right: auto;
 }
 
-.navbar ul {
-  list-style: none;
-  display: flex;
-}
 
-.navbar ul li {
-  margin: 0 10px;
-}
-
-.navbar ul li a {
-  color: white;
-  text-decoration: none;
-}
-
-.user-controls button {
+header .user-controls button {
   padding: 5px 10px;
   margin-left: 10px;
-  background-color: #555;
-  border: none;
-  color: white;
+  background-color: #45a049;
+  border: solid;
+  color: black;
   cursor: pointer;
+  border-radius: 20px;
 }
 
-.user-controls button:hover {
-  background-color: #777;
-}
+
+

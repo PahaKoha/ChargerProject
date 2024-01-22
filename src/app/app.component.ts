@@ -12,7 +12,7 @@ import {AuthComponent} from "./components/auth/auth.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = '-_- Work_Out -_-';
+  title = 'Your Charging';
 
   constructor(public authService: AuthService) {
   }

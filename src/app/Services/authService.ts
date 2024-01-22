@@ -7,13 +7,10 @@ import {BehaviorSubject} from "rxjs";
 export class AuthService {
   private loginState: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private signUpState: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-  // private isEmailCorrect: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
-
 
   showLogin() {
     this.loginState.next(true);
     this.signUpState.next(false);
-
   }
 
   hideLogin() {

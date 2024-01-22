@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import{Component, OnInit} from '@angular/core';
 import {AuthService} from "../../Services/authService";
-import {FormsModule} from "@angular/forms";
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AsyncPipe, NgIf} from "@angular/common";
 
 @Component({
@@ -9,20 +9,33 @@ import {AsyncPipe, NgIf} from "@angular/common";
   imports: [
     FormsModule,
     AsyncPipe,
-    NgIf
+    NgIf,
+    ReactiveFormsModule
   ],
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.css'
 })
-export class AuthComponent   {
-  constructor(public authService: AuthService) {
+export class AuthComponent implements OnInit{
+  constructor(public authService: AuthService, public fb: FormBuilder) {
   }
 
+  loginForm!: FormGroup;
+  signUpForm!: FormGroup;
 
   loginEmail: string = "";
   signUpEmail: string = "";
-  loginColor: string = "";
-  singUpColor: string = "";
+
+  ngOnInit() {
+    this.loginForm = this.fb.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    })
+    this.signUpForm = this.fb.group({
+      nickname: ['', Validators.required],
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    })
+  }
 
   openLogin() {
     this.authService.showLogin()
@@ -53,4 +66,5 @@ export class AuthComponent   {
   }
 
 
+  protected readonly require = require;
 }
