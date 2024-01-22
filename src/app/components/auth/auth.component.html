@@ -1,0 +1,61 @@
+<div class="auth-container">
+  <div class="auth-content">
+    <div class="btn-group">
+      <button class="style-btn2" [class.active]="loginIsOpen() | async" (click)="openLogin()">Вход</button>
+      <button class="style-btn2" [class.active]="signUpIsOpen() | async" (click)="openSignUp()">Регистрация</button>
+    </div>
+
+    <div class="login" *ngIf="loginIsOpen() | async">
+      <form [formGroup]="loginForm">
+        <div class="input-group">
+          <input formControlName="email" placeholder="Почта" type="text">
+          <div
+            *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email'); else errorPlaceholder">
+            <small class="text-danger">Необходимо ввести почту</small>
+          </div>
+          <input type="password" formControlName="password" placeholder="Пароль">
+          <div
+            *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password'); else errorPlaceholder">
+            <small class="text-danger">Необходимо ввести пароль</small>
+          </div>
+          <ng-template #errorPlaceholder>
+            <div class="error-placeholder"></div>
+          </ng-template>
+        </div>
+        <div class="btn-group">
+          <button class="style-btn" (click)="emailChecker(loginEmail)">Войти</button>
+          <button class="style-btn" (click)="closeLogin()">Отмена</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="sign-up" *ngIf="signUpIsOpen() | async">
+      <form [formGroup]="signUpForm">
+        <div class="input-group">
+          <input type="text" placeholder="Имя пользователя" formControlName="nickname">
+          <div
+            *ngIf="signUpForm.controls['nickname'].dirty && signUpForm.hasError('required', 'nickname'); else errorPlaceholder">
+            <small class="text-danger">Необходимо ввести буддущее имя пользователя</small>
+          </div>
+          <input type="text" placeholder="Почта" formControlName="email">
+          <div
+            *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required', 'email'); else errorPlaceholder">
+            <small class="text-danger">Необходимо ввести будущую почту</small>
+          </div>
+          <input type="password" placeholder="Пароль" formControlName="password">
+          <div
+            *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required', 'password'); else errorPlaceholder">
+            <small class="text-danger">Необходимо ввести ввести будущий пароль</small>
+          </div>
+          <ng-template #errorPlaceholder>
+            <div class="error-placeholder"></div>
+          </ng-template>
+        </div>
+        <div class="btn-group">
+          <button class="style-btn">Зарегистрироваться</button>
+          <button class="style-btn" (click)="closeSignUp()">Отмена</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

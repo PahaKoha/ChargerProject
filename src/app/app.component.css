@@ -1,0 +1,30 @@
+header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+}
+
+header .title {
+  font-size: 30px;
+  font-style: italic;
+  text-align: center;
+  margin-left: 150px;
+  margin-right: auto;
+}
+
+
+header .user-controls button {
+  padding: 5px 10px;
+  margin-left: 10px;
+  background-color: #45a049;
+  border: solid;
+  color: black;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+
+
