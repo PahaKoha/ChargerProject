@@ -35,15 +35,9 @@ export class AuthService {
     return this.signUpState.asObservable();
   }
 
-  emailChecker(email: string) {
+  emailChecker(email: string) : boolean {
     let dogIndex = email.indexOf("@");
     let dotIndex = email.indexOf(".");
-
-
-    if (dogIndex !== -1 && dotIndex !== -1) {
-      console.log("Структура email верна!");
-    } else {
-      console.log("Некорректные данные.");
-    }
+    return dogIndex !== -1 && dotIndex !== -1;
   }
 }

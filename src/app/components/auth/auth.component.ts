@@ -1,6 +1,6 @@
-import{Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthService} from "../../Services/authService";
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AsyncPipe, NgIf} from "@angular/common";
 
 @Component({
@@ -15,7 +15,7 @@ import {AsyncPipe, NgIf} from "@angular/common";
   templateUrl: './auth.component.html',
   styleUrl: './auth.component.css'
 })
-export class AuthComponent implements OnInit{
+export class AuthComponent implements OnInit {
   constructor(public authService: AuthService, public fb: FormBuilder) {
   }
 
@@ -35,6 +35,10 @@ export class AuthComponent implements OnInit{
       email: ['', Validators.required],
       password: ['', Validators.required]
     })
+  }
+
+  testClick() {
+    console.log("work!")
   }
 
   openLogin() {
@@ -61,10 +65,47 @@ export class AuthComponent implements OnInit{
     return this.authService.signUpIsShown()
   }
 
-  emailChecker(email: string) {
-    this.authService.emailChecker(email);
+  protected readonly require = require;
+
+  onLoginSubmit() {
+    if (this.loginForm.valid) {
+      console.log(this.loginForm.value)
+    } else {
+      // throw new Error("Некорректные данные.")
+      this.validateAllLoginFormFields(this.loginForm);
+      alert("Форма заполнена некорректно.")
+    }
   }
 
+  private validateAllLoginFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsDirty({onlySelf: true});
+      } else if (control instanceof FormGroup) {
+        this.validateAllLoginFormFields(control)
+      }
+    })
+  }
 
-  protected readonly require = require;
+  onSingUpSubmit() {
+    if (this.loginForm.valid) {
+      console.log(this.signUpForm.value)
+    } else {
+      // throw new Error("Некорректные данные.")
+      this.validateAllSingUpFormFields(this.signUpForm);
+      alert("Форма заполнена некорректно.")
+    }
+  }
+
+  private validateAllSingUpFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsDirty({onlySelf: true});
+      } else if (control instanceof FormGroup) {
+        this.validateAllSingUpFormFields(control)
+      }
+    })
+  }
 }

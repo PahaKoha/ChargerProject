@@ -1,4 +1,8 @@
 header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -11,8 +15,12 @@ header .title {
   font-size: 30px;
   font-style: italic;
   text-align: center;
-  margin-left: 150px;
+  margin-left: 30px;
   margin-right: auto;
+}
+
+header .logo {
+  margin-left: 20px;
 }
 
 

@@ -7,23 +7,23 @@
 
     <div class="login" *ngIf="loginIsOpen() | async">
       <form [formGroup]="loginForm">
-        <div class="input-group">
-          <input formControlName="email" placeholder="Почта" type="text">
+        <div class="input-group" >
+          <input class="input-field" formControlName="email" placeholder="Почта" [class.error]="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')">
           <div
             *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email'); else errorPlaceholder">
-            <small class="text-danger">Необходимо ввести почту</small>
+            <small class="text-danger">*Необходимо ввести почту</small>
           </div>
-          <input type="password" formControlName="password" placeholder="Пароль">
+          <input class="input-field" type="password" formControlName="password" placeholder="Пароль" [class.error]="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')">
           <div
             *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password'); else errorPlaceholder">
-            <small class="text-danger">Необходимо ввести пароль</small>
+            <small class="text-danger">*Необходимо ввести пароль</small>
           </div>
           <ng-template #errorPlaceholder>
             <div class="error-placeholder"></div>
           </ng-template>
         </div>
         <div class="btn-group">
-          <button class="style-btn" (click)="emailChecker(loginEmail)">Войти</button>
+          <button  class="style-btn" (click)="onLoginSubmit()">Войти</button>
           <button class="style-btn" (click)="closeLogin()">Отмена</button>
         </div>
       </form>
@@ -32,27 +32,27 @@
     <div class="sign-up" *ngIf="signUpIsOpen() | async">
       <form [formGroup]="signUpForm">
         <div class="input-group">
-          <input type="text" placeholder="Имя пользователя" formControlName="nickname">
+          <input class="input-field" type="text" placeholder="Имя пользователя" formControlName="nickname" [class.error]="signUpForm.controls['nickname'].dirty && signUpForm.hasError('required', 'nickname')">
           <div
             *ngIf="signUpForm.controls['nickname'].dirty && signUpForm.hasError('required', 'nickname'); else errorPlaceholder">
-            <small class="text-danger">Необходимо ввести буддущее имя пользователя</small>
+            <small class="text-danger">*Необходимо ввести буддущее имя пользователя</small>
           </div>
-          <input type="text" placeholder="Почта" formControlName="email">
+          <input class="input-field" type="text" placeholder="Почта" formControlName="email" [class.error]="signUpForm.controls['email'].dirty && signUpForm.hasError('required', 'email')">
           <div
             *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required', 'email'); else errorPlaceholder">
-            <small class="text-danger">Необходимо ввести будущую почту</small>
+            <small class="text-danger">*Необходимо ввести будущую почту</small>
           </div>
-          <input type="password" placeholder="Пароль" formControlName="password">
+          <input class="input-field" type="password" placeholder="Пароль" formControlName="password" [class.error]="signUpForm.controls['password'].dirty && signUpForm.hasError('required', 'password')">
           <div
             *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required', 'password'); else errorPlaceholder">
-            <small class="text-danger">Необходимо ввести ввести будущий пароль</small>
+            <small class="text-danger">*Необходимо ввести ввести будущий пароль</small>
           </div>
           <ng-template #errorPlaceholder>
             <div class="error-placeholder"></div>
           </ng-template>
         </div>
         <div class="btn-group">
-          <button class="style-btn">Зарегистрироваться</button>
+          <button  class="style-btn" (click)="onSingUpSubmit()">Зарегистрироваться</button>
           <button class="style-btn" (click)="closeSignUp()">Отмена</button>
         </div>
       </form>
