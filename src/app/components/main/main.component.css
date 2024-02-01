@@ -1,0 +1,335 @@
+*{
+  margin: 0; /*Удаляем отступы со всей страниц */
+  padding: 0;
+  box-sizing: border-box;
+
+}
+
+@font-face {
+  font-family: "GoodDog";
+  src: url("attachments/fonts/gooddog.ttf");
+}
+
+body {
+
+  width: 100%;
+  min-height: 100vh;
+
+
+
+}
+.bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color:  rgba(6,56,82,1);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 94%;
+  margin-left: 3%;
+  margin-right: 3%;
+  height: 7%; /* Выберите высоту по вашему усмотрению */
+
+  .logo {
+    display: flex;
+    justify-content: left;
+    margin-top: 1%;
+    margin-left: 1.6%;
+    width: 25%;
+    order: 1;
+    img {
+      color: #ffffff;
+      height: 50px;
+    }
+  }
+
+  .title {
+    font-family: "GoodDog";
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    order: 2;
+    width: 50%;
+  }
+
+  .right {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-right: 5%;
+    width: 25%;
+    order: 3;
+
+    .button{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 22px;
+      font-family: "GoodDog";
+      margin-top: 3%;
+      color: #ffffff;
+      height:50% ;
+      width: 25%;
+      background-color: rgba(6,56,82,1);
+      border: 2px solid #85db18;
+      border-radius: 20px;
+      img{
+        display: block;
+        height: 80%;
+        padding: 1%;
+        width: 80%;
+      }
+    }
+  }
+
+
+}
+.midle{
+  display: flex;
+  height: 88vh;
+  justify-content: space-between;
+  .aside{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 4%;
+    /* Через @media изменить процент если ширина для телефефона */
+
+    .mainsidebar{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      margin-top: 100%;
+      width: 100%;
+      background-color: rgba(6,56,82,1);
+      height: 40%;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      img{
+        display: block;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-left: 8px;
+        margin-top: 13px;
+        margin-bottom: 10px;
+
+      }
+    }
+    .usersidebar{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      margin-bottom: 10%;
+      width: 100%;
+      background-color: rgba(6,56,82,1);
+      height: 20%;
+      border-top-right-radius: 20px;
+      border-bottom-right-radius: 20px;
+      img{
+        display: block;
+        width: 40px;
+        height: 60%;
+        border-radius: 50%;
+        margin-left: 8px;
+        margin-top: 13px;
+        margin-bottom: 10px;
+
+
+      }
+      .avatar{
+        border: 2px solid #85db18;
+        width: 38px;
+        height: 38px;
+      }
+      .settings{
+        fill: #85db18;
+      }
+    }
+
+
+
+  }
+
+  .main{
+    width: 92%;
+    display: flex;
+    flex-direction: column;
+    .hello-world{
+      display: flex;
+      position: relative;
+      margin-top: 1.5%;
+      background-color: rgba(6,56,82,1);
+      border-radius: 25px;
+      width: 94%;
+      height: 15%;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+      .morning{
+        position: absolute;
+        left: 1%;
+        height: 80%;
+
+      }
+    }
+
+    .window{
+      display: flex;
+      margin-top: 1.5%;
+      background-color: rgba(6,56,82,1);
+      border-radius: 25px;
+      width: 94%;
+      height: 85%;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff;
+    }
+  }
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #333;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+.buttons {
+  margin-top: 50px;
+  text-align: center;
+  border-radius: 30px;
+}
+
+.blob-btn {
+  z-index: 1;
+  position: relative;
+  padding: 20px 46px;
+  margin-bottom: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #0505A9;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  transition: color 0.5s;
+  cursor: pointer;
+  border-radius: 30px;
+}
+.blob-btn:before {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid #7f29ff;
+  border-radius: 30px;
+}
+.blob-btn:after {
+  content: "";
+  z-index: -2;
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s 0.2s;
+  border-radius: 30px;
+}
+.blob-btn:hover {
+  color: #FFFFFF;
+  border-radius: 30px;
+}
+.blob-btn:hover:after {
+  transition: all 0.3s;
+  left: 0;
+  top: 0;
+  border-radius: 30px;
+}
+.blob-btn__inner {
+  z-index: -1;
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  background: #ffffff;
+}
+.blob-btn__blobs {
+  position: relative;
+  display: block;
+  height: 100%;
+  filter: url("#goo");
+}
+.blob-btn__blob {
+  position: absolute;
+  top: 2px;
+  width: 25%;
+  height: 100%;
+  background: #7f29ff;
+  border-radius: 100%;
+  transform: translate3d(0, 150%, 0) scale(1.7);
+  transition: transform 0.45s;
+}
+@supports (filter: url("#goo")) {
+  .blob-btn__blob {
+    transform: translate3d(0, 150%, 0) scale(1.4);
+  }
+}
+.blob-btn__blob:nth-child(1) {
+  left: 0%;
+  transition-delay: 0s;
+}
+.blob-btn__blob:nth-child(2) {
+  left: 30%;
+  transition-delay: 0.08s;
+}
+.blob-btn__blob:nth-child(3) {
+  left: 60%;
+  transition-delay: 0.16s;
+}
+.blob-btn__blob:nth-child(4) {
+  left: 90%;
+  transition-delay: 0.24s;
+}
+.blob-btn:hover .blob-btn__blob {
+  transform: translateZ(0) scale(1.7);
+}
+@supports (filter: url("#goo")) {
+  .blob-btn:hover .blob-btn__blob {
+    transform: translateZ(0) scale(1.4);
+  }
+}
+
+/*
+Отступы с css:
+есть margin - это отступ от объекта до чего либо (т.е отступ извне)
+есть padding - это отсуп от объекта до границ блока(т.е отступ изнутри)
+*/
+
+/*
+Допустим у нас есть <div> с классов Container. В css есть такое ключевая характеристика как display. Она задает тип блока:
+- inline(строчный) за размер блока овечает контент внутри. Он его как бы обтекает. Характеристики высоты и ширины не работают
+- block(блочный) занимает все расстояние в строчку
+- inline-block что-то между скорее является inline, но к нему применимы характеристики высоты и ширины
+- flex(по умолчанию работает как block, однако можно задать различные характеристики) flex-direction: позволяет выбирать как отображать в строчку или столбик
+justify-content: иммет различные динамические характеристики
+*/
+
+
+/*Медиа запросы: повзоляют изменять настройки при различных характеристиках
+@media(max-width: 900px){
+
+} все те свойства, которые будут прописаны внутри скобок будут активироваться при ширине меньше 900*/
