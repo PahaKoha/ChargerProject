@@ -8,14 +8,16 @@
     <div class="login" *ngIf="loginIsOpen() | async">
       <form [formGroup]="loginForm">
         <div class="input-group" >
-          <input class="input-field" formControlName="email" placeholder="Почта" [class.error]="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email')">
+          <input class="input-field" formControlName="email" placeholder="Почта"
+                 [class.error]="hasErrorAndDirty('email', loginForm)">
           <div
-            *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required', 'email'); else errorPlaceholder">
+            *ngIf="isFieldInvalid('email', loginForm); else errorPlaceholder; else errorPlaceholder">
             <small class="text-danger">*Необходимо ввести почту</small>
           </div>
-          <input class="input-field" type="password" formControlName="password" placeholder="Пароль" [class.error]="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password')">
+          <input class="input-field" type="password" formControlName="password" placeholder="Пароль"
+                 [class.error]="hasErrorAndDirty('password', loginForm)">
           <div
-            *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required', 'password'); else errorPlaceholder">
+            *ngIf="isFieldInvalid('password', loginForm); else errorPlaceholder; else errorPlaceholder">
             <small class="text-danger">*Необходимо ввести пароль</small>
           </div>
           <ng-template #errorPlaceholder>
@@ -32,19 +34,22 @@
     <div class="sign-up" *ngIf="signUpIsOpen() | async">
       <form [formGroup]="signUpForm">
         <div class="input-group">
-          <input class="input-field" type="text" placeholder="Имя пользователя" formControlName="nickname" [class.error]="signUpForm.controls['nickname'].dirty && signUpForm.hasError('required', 'nickname')">
+          <input class="input-field" type="text" placeholder="Имя пользователя" formControlName="username"
+                 [class.error]="hasErrorAndDirty('username', signUpForm)">
           <div
-            *ngIf="signUpForm.controls['nickname'].dirty && signUpForm.hasError('required', 'nickname'); else errorPlaceholder">
+            *ngIf="isFieldInvalid('username', signUpForm); else errorPlaceholder">
             <small class="text-danger">*Необходимо ввести буддущее имя пользователя</small>
           </div>
-          <input class="input-field" type="text" placeholder="Почта" formControlName="email" [class.error]="signUpForm.controls['email'].dirty && signUpForm.hasError('required', 'email')">
+          <input class="input-field" type="text" placeholder="Почта" formControlName="email"
+                 [class.error]="hasErrorAndDirty('email', signUpForm)">
           <div
-            *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required', 'email'); else errorPlaceholder">
+            *ngIf="isFieldInvalid('email', signUpForm); else errorPlaceholder">
             <small class="text-danger">*Необходимо ввести будущую почту</small>
           </div>
-          <input class="input-field" type="password" placeholder="Пароль" formControlName="password" [class.error]="signUpForm.controls['password'].dirty && signUpForm.hasError('required', 'password')">
+          <input class="input-field" type="password" placeholder="Пароль" formControlName="password"
+                 [class.error]="hasErrorAndDirty('password', signUpForm)">
           <div
-            *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required', 'password'); else errorPlaceholder">
+            *ngIf="isFieldInvalid('password', signUpForm); else errorPlaceholder">
             <small class="text-danger">*Необходимо ввести ввести будущий пароль</small>
           </div>
           <ng-template #errorPlaceholder>
