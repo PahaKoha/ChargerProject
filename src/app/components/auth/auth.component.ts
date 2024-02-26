@@ -4,6 +4,9 @@ import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} fr
 import {AsyncPipe, CommonModule, NgIf} from "@angular/common";
 import ValidateForm from "../../usefulTools/validateForm";
 import {HttpClientModule} from "@angular/common/http";
+import {Router} from "@angular/router";
+import {routes} from "../../app.routes";
+import {TokenChecker} from "../../usefulTools/tokenChecker";
 
 @Component({
   selector: 'app-auth',
@@ -20,7 +23,7 @@ import {HttpClientModule} from "@angular/common/http";
   styleUrl: './auth.component.css'
 })
 export class AuthComponent implements OnInit {
-  constructor(public authService: AuthService, public fb: FormBuilder) {
+  constructor(public authService: AuthService, public fb: FormBuilder, public router: Router, public tokenChecker: TokenChecker) {
   }
 
   loginForm!: FormGroup;
@@ -33,7 +36,7 @@ export class AuthComponent implements OnInit {
 
   private initLoginForm() {
     this.loginForm = this.fb.group({
-      email: ['', Validators.required],
+      username: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
@@ -73,8 +76,16 @@ export class AuthComponent implements OnInit {
   onLoginSubmit() {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value)
+      this.authService.auth(this.loginForm.value).subscribe({
+        next: (response) => {
+          this.tokenChecker.storeToken(response.token)
+          this.router.navigate(['/main-page'])
+        },
+        error: (error) => {
+          console.log('Ошибка входа', error)
+        }
+      })
     } else {
-      // throw new Error("Некорректные данные.")
       ValidateForm.validateAllFormFields(this.loginForm);
       alert("Форма входа заполнена некорректно.")
     }
@@ -85,7 +96,7 @@ export class AuthComponent implements OnInit {
       console.log(this.signUpForm.value)
       this.authService.registration(this.signUpForm.value).subscribe({
         next: (response) => {
-          console.log('Регистрация прошла успешно', response);
+          alert(`Регистрация пользователя ${response.username} прошла успешо.`)
         },
         error: (error) => {
           console.error('Ошибка регистрации', error);
@@ -101,6 +112,7 @@ export class AuthComponent implements OnInit {
     const control = form.get(field);
     return (control?.dirty && control?.hasError('required')) ?? false;
   }
+
   hasErrorAndDirty(field: string, form: FormGroup): boolean {
     const control = form.get(field);
     return control?.dirty && control?.hasError('required') || false;

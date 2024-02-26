@@ -8,16 +8,16 @@
     <div class="login" *ngIf="loginIsOpen() | async">
       <form [formGroup]="loginForm">
         <div class="input-group" >
-          <input class="input-field" formControlName="email" placeholder="Почта"
-                 [class.error]="hasErrorAndDirty('email', loginForm)">
+          <input class="input-field" formControlName="username" placeholder="Имя пользователя"
+                 [class.error]="hasErrorAndDirty('username', loginForm)">
           <div
-            *ngIf="isFieldInvalid('email', loginForm); else errorPlaceholder; else errorPlaceholder">
+            *ngIf="isFieldInvalid('username', loginForm); else errorPlaceholder">
             <small class="text-danger">*Необходимо ввести почту</small>
           </div>
           <input class="input-field" type="password" formControlName="password" placeholder="Пароль"
                  [class.error]="hasErrorAndDirty('password', loginForm)">
           <div
-            *ngIf="isFieldInvalid('password', loginForm); else errorPlaceholder; else errorPlaceholder">
+            *ngIf="isFieldInvalid('password', loginForm); else errorPlaceholder">
             <small class="text-danger">*Необходимо ввести пароль</small>
           </div>
           <ng-template #errorPlaceholder>
