@@ -17,5 +17,6 @@ export const appConfig: ApplicationConfig = {
     {
       provide: TokenChecker,
       useClass: TokenChecker
-    }]
+    },
+  ]
 };

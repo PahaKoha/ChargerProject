@@ -33,6 +33,7 @@ export class TokenChecker {
           return of(response.status);
         }),
         catchError(error => {
+          localStorage.removeItem('token')
           return of(false);
         })
       );

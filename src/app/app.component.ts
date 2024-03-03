@@ -4,7 +4,7 @@ import {RouterLink, RouterOutlet, RouterModule} from '@angular/router';
 import {AuthService} from "./services/authService";
 import {AuthComponent} from "./components/auth/auth.component";
 import {HttpClientModule} from "@angular/common/http";
-import {HeaderComponent} from "./components/header/header.component";
+import {HeaderComponent} from "./components/home-page/header/header.component";
 
 @Component({
   selector: 'app-root',

@@ -5,7 +5,7 @@ import {AuthComponent} from "../auth/auth.component";
 import {AsyncPipe, NgIf} from "@angular/common";
 import {StartComponent} from "./start/start.component";
 import {ContainerDescriptionComponent} from "./container-description/container-description.component";
-import {HeaderComponent} from "../header/header.component";
+import {HeaderComponent} from "./header/header.component";
 
 @Component({
   selector: 'app-home-page',

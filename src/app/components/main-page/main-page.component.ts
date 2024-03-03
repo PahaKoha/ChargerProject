@@ -1,11 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {MainPageService} from "../../services/mainPageService";
 import {HttpClientModule} from "@angular/common/http";
+import {MainHeaderComponent} from "./main-header/main-header.component";
 
 @Component({
   selector: 'app-main-page',
   standalone: true,
-  imports: [HttpClientModule],
+  imports: [HttpClientModule, MainHeaderComponent],
   templateUrl: './main-page.component.html',
   styleUrl: './main-page.component.css'
 })
