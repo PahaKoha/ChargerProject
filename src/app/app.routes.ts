@@ -6,5 +6,5 @@ import {MainPageGuard} from "./guards/main-page/main-page.guard";
 
 export const routes: Routes = [
   {path: '', component: HomePageComponent, canActivate: [MainPageGuard]},
-  {path: 'main-page', component: MainPageComponent, canActivate: [AuthGuard]}
+  {path: 'main-page', component: MainPageComponent, /* canActivate: [AuthGuard] */}
 ];

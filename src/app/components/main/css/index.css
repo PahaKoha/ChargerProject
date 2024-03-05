@@ -2,7 +2,7 @@
    margin: 0; /*Удаляем отступы со всей страниц */
    padding: 0;
    box-sizing: border-box;
-   
+
 }
 
 @font-face {
@@ -61,13 +61,13 @@ body {
     margin-right: 5%;
     width: 25%;
     order: 3;
-    
+
     .button{
       display: flex;
       justify-content: center;
       align-items: center;
       font-size: 22px;
-      font-family: "GoodDog";
+      font-family: "GoodDog", serif;
       margin-top: 3%;
       color: #ffffff;
       height:50% ;
@@ -84,7 +84,7 @@ body {
     }
   }
 
-  
+
 }
 .midle{
   display: flex;
@@ -115,7 +115,7 @@ body {
         margin-left: 8px;
         margin-top: 13px;
         margin-bottom: 10px;
-        
+
       }
     }
     .usersidebar{
@@ -136,8 +136,8 @@ body {
         margin-left: 8px;
         margin-top: 13px;
         margin-bottom: 10px;
-        
-        
+
+
       }
       .avatar{
         border: 2px solid #85db18;
@@ -148,9 +148,9 @@ body {
         fill: #85db18;
       }
     }
-    
 
-    
+
+
   }
 
   .main{
@@ -172,7 +172,7 @@ body {
         position: absolute;
         left: 1%;
         height: 80%;
-        
+
       }
     }
 
@@ -187,10 +187,10 @@ body {
       align-items: center;
       color: #ffffff;
     }
-  } 
+  }
 }
 
-  
+
 
   /*
   Отступы с css:
@@ -198,7 +198,7 @@ body {
   есть padding - это отсуп от объекта до границ блока(т.е отступ изнутри)
   */
 
-  /* 
+  /*
   Допустим у нас есть <div> с классов Container. В css есть такое ключевая характеристика как display. Она задает тип блока:
   - inline(строчный) за размер блока овечает контент внутри. Он его как бы обтекает. Характеристики высоты и ширины не работают
   - block(блочный) занимает все расстояние в строчку
