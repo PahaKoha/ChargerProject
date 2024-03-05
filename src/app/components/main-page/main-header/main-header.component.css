@@ -1,65 +1,53 @@
 .header {
+  position: sticky;
+  margin-bottom: 20px;
+  top: 0;
+  left: 0;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-color:  rgba(6,56,82,1);
+  align-items: center;
+  justify-content: flex-start;
+  /*padding: 40px 20px;*/
+  background-color: rgba(6, 56, 82, 1);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
   width: 94%;
   margin-left: 3%;
   margin-right: 3%;
-  height: 7%; /* Выберите высоту по вашему усмотрению */
+  height: 7%;
 }
-.logo{
-  display: flex;
-  justify-content: left;
 
-  width: 25%;
-  img {
-    margin-left: 5%;
-    margin-top: 5%;
-    color: #ffffff;
-    height: 40px;
-  }
-}
 .user-controls {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin-right: 4%;
-  width: 25%;
-
+  margin-left: auto;
+  margin-right: 30px;
+  width: 10vw; /* Занимает 10% от ширины viewport */
+  height: auto; /* Сохраняет пропорции изображения */
 }
 
 .user-controls button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 5px 10px;
+  margin: 10px;
+  background-color: #45a049;
+  cursor: pointer;
   font-size: 22px;
-  font-family: "GoodDog", serif;
-  margin-top: 3%;
+  font-family: "GoodDog";
   color: #ffffff;
   height:50% ;
   width: 25%;
   background-color: rgba(6,56,82,1);
   border: 2px solid #85db18;
   border-radius: 20px;
-  img{
-    display: block;
-    height: 70%;
-    padding: 1%;
-    width: 70%;
-  }
 }
 
 .title {
-  font-family: "GoodDog", serif;
-  font-size: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #ffffff;
-  width: 50%;
+  font-size: 30px;
+  font-style: italic;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-
+.logo img {
+  width: 10vw; /* Занимает 10% от ширины viewport */
+  height: auto; /* Сохраняет пропорции изображения */
+}
